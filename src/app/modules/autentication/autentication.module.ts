@@ -6,6 +6,8 @@ import { LoginViewComponent } from './componentes/login-view/login-view.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }   from '@angular/common/http';
 import { AuthenticationGuard } from './services/auth.guard';
+import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
+
 
 const routes: Routes = [
   {
@@ -24,7 +26,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [
     AuthenticationGuard

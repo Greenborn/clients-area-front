@@ -1,18 +1,29 @@
-.logo img {
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.logo img{
+    height: 100%;
+    width: auto;
 }
-    
 
 .logo {
+    margin-top: 19vh;
     position: relative;
-    height: 250px;
+    height: 70px;
 }
 
 .content {
     background-color: linear-gradient(#485563, #29323c)
+}
+
+.back-p2{
+    background-image: url("./img/bg1.jpeg");
+    background-repeat: repeat;
+}
+
+.back-p2 .row{
+    background: rgba(0,0,0,.7);
+    color: #fff;
+}
+
+.input-group-prepend{
+    background: #ddd;
 }
     

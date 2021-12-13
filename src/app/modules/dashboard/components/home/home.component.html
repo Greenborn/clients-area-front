@@ -1,31 +1,47 @@
-<ul ngbNav #nav="ngbNav" [(activeId)]="activeNav" class="nav-tabs">
-    <li ngbNavItem>
-      <a ngbNavLink>Equipos</a>
-      <ng-template ngbNavContent>
-        <app-grilla-equipos></app-grilla-equipos>
-      </ng-template>
-    </li>
+<div class="container-fluid">
+  <div class="row flex-nowrap">
 
-    <li ngbNavItem>
-      <a ngbNavLink>Estadisticas</a>
-      <ng-template ngbNavContent>
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+              <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                  <span class="fs-5 d-none d-sm-inline">Estadísticas 1</span>
+              </a>
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link align-middle px-0">
+                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Equipos</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Estadisticas</span>
+                      </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Mapa</span>
+                    </a>
+                  </li>
+
+              </ul>
+              <hr>
+              <div class="dropdown pb-4" ngbDropdown>
+                  <a href (click)="false" ngbDropdownToggle class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/profile1.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                      <span class="d-none d-sm-inline mx-1">Sessión</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark text-small shadow" ngbDropdownMenu>
+                      <li ngbDropdownItem><a class="dropdown-item" href="#" (click)="logout()">Salir</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="col py-3">
+        <!--<app-grilla-equipos></app-grilla-equipos>
         <app-detalle-equipo></app-detalle-equipo>
-      </ng-template>
-    </li>
+        <app-mapa-equipos></app-mapa-equipos>-->
+      </div>
 
-    <li ngbNavItem>
-        <a ngbNavLink>Mapa</a>
-        <ng-template ngbNavContent>
-            <app-mapa-equipos></app-mapa-equipos>
-        </ng-template>
-    </li>
-
-    <li ngbDropdown class="nav-item">
-        <a href (click)="false" class="nav-link" ngbDropdownToggle>Sesión</a>
-        <div ngbDropdownMenu>
-          <button ngbDropdownItem (click)="logout()">Salir</button>
-        </div>
-      </li>
-</ul>
-
-<div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>
