@@ -11,7 +11,7 @@ export class MessageComponentService {
   }
   public dConfig:MessageComponentConfig = new MessageComponentConfig();
 
-  public buttonsClass:string = 'btn-outline-info';
+  public buttonsClass:string = 'btn-info';
 
   public showMessage( params:any ){
     this.dConfig.content = params.content;

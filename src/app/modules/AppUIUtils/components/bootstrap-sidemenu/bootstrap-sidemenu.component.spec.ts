@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapaEquiposComponent } from './mapa-equipos.component';
+import { BootstrapSidemenuComponent } from './bootstrap-sidemenu.component';
 
-describe('MapaEquiposComponent', () => {
-  let component: MapaEquiposComponent;
-  let fixture: ComponentFixture<MapaEquiposComponent>;
+describe('BootstrapSidemenuComponent', () => {
+  let component: BootstrapSidemenuComponent;
+  let fixture: ComponentFixture<BootstrapSidemenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapaEquiposComponent ]
+      declarations: [ BootstrapSidemenuComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapaEquiposComponent);
+    fixture = TestBed.createComponent(BootstrapSidemenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

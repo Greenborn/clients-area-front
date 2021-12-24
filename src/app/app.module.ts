@@ -8,12 +8,12 @@ import { ChartModule } from 'angular-highcharts';
 
 
 import { AutenticationModule } from './modules/autentication/autentication.module';
-import { DashboardModule }     from './modules/dashboard/dashboard.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppUIUtilsModule } from './modules/AppUIUtils/app-uiutils.module';
 
 import { LoadingComponent } from './modules/AppUIUtils/components/loading/loading.component';
 import { MessageComponent } from './modules/AppUIUtils/components/message/message.component';
+import { allIcons, NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 
 @NgModule({
   declarations: [
@@ -25,13 +25,14 @@ import { MessageComponent } from './modules/AppUIUtils/components/message/messag
     BrowserModule,
     AppRoutingModule,
     AutenticationModule,
-    DashboardModule,
+    AppUIUtilsModule,
     FormsModule,
     AppUIUtilsModule,
     ReactiveFormsModule,
-    ChartModule,
+    ChartModule,AppUIUtilsModule,
     NgbModule,NgbPopoverModule,
-    NgbNavModule, NgbAccordionModule
+    NgbNavModule, NgbAccordionModule,
+    NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [],
   bootstrap: [AppComponent]

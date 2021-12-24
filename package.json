@@ -16,6 +16,7 @@
     "@angular/compiler": "~12.2.6",
     "@angular/core": "~12.2.6",
     "@angular/forms": "~12.2.6",
+    "@angular/localize": "^13.1.1",
     "@angular/platform-browser": "~12.2.6",
     "@angular/platform-browser-dynamic": "~12.2.6",
     "@angular/router": "~12.2.6",
@@ -23,9 +24,10 @@
     "angular-highcharts": "^12.0.0",
     "bootstrap": "^5.1.1",
     "highcharts": "^9.2.2",
+    "ngx-bootstrap-icons": "^1.7.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "^0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.6",

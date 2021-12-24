@@ -7,3 +7,12 @@
     user-select: none;
     pointer-events: none;
   }
+
+.vh-100{
+  height: 100vh !important;
+}
+
+.flex-vert-align{
+  display: flex;
+  align-items: center;
+}
