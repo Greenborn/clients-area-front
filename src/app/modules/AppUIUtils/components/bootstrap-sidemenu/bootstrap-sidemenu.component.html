@@ -5,7 +5,7 @@
     <ul class="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
         
         <li class="nav-item w-100" *ngFor="let r of config.links">
-            <a (click)="r.onClick()" class="nav-link w-100 text-white align-middle px-0">
+            <a (click)="r.onClick(r.id)" class="nav-link w-100 text-white align-middle px-0">
                 <i-bs name="{{r.icon}}" [ngStyle]="{'color':r.color}"
                       width="{{config.icon_size}}" height="{{config.icon_size}}" class="m-2 disable-select"></i-bs> 
                 <span class="ms-1 d-none d-sm-inline disable-select">{{r.name}}</span>
