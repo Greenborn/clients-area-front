@@ -46,12 +46,15 @@
                       </i-bs>
                       <p>Agregar Imagen</p>
                     </label>
-                    <input type="file" id="FUImage" name="FUImage" style="visibility:hidden;position: fixed;" accept=".png, .jpg, .jpeg, .webp, .bmp" (change)="handleFileInput($event.target.files)" multiple> 
+                    <input type="file" id="FUImage" name="FUImage" style="visibility:hidden;position: fixed;" accept=".png, .jpg, .jpeg, .webp, .bmp" (change)="handleFileInput($event.target.files)"> 
                     
                   </div>
                   <div class="col pt-3 mr-2">
-                    <div *ngFor="let image of model.images" class="selected-img-cont">
-                       <img src="{{image}}" alt="Selected Image" height="125px" width="auto">
+                    <div *ngFor="let image of model.images; let i = index" class="selected-img-cont" (click)="deleteImg(i)">
+                        <i-bs name="trash" class="m-2"
+                          width="25" height="25">
+                        </i-bs>
+                       <img src="{{image.file}}" alt="Selected Image" height="125px" width="auto">
                     </div>
                   </div>
                   <div class="col-auto p-5 pb-2 pt-3 mb-3"><button type="button" class="btn btn-info col-12" (click)="next()">Enviar</button></div>

@@ -6,7 +6,7 @@ import { ReportBugComponent } from 'src/app/components/report-bug/report-bug.com
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'reportar-error', component: ReportBugComponent, pathMatch: 'full' },
+  { path: 'reportar-error/:id', component: ReportBugComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

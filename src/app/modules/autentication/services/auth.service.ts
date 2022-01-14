@@ -8,7 +8,7 @@ import { ResetPassword }   from '../models/reset-password';
 import { Usuario }         from '../models/usuario';
 
 import { AppUIUtilsService }   from 'src/app/modules/AppUIUtils/services/app.ui.utils.service';
-import { ConfigService }   from 'src/app/services/config/config.service';
+import { ConfigService }   from 'src/app/services/config.service';
 
 @Injectable({
   providedIn: 'root'

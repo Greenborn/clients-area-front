@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FileUplodVM } from './models/file.upload.vm';
-import { map } from 'rxjs/operators';
 import { ReportBug } from './models/report.bug';
+import { AppUIUtilsService } from 'src/app/modules/AppUIUtils/services/app.ui.utils.service';
+import { PublicBugReportService } from './services/public.report.bug.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { PublicProyectService } from 'src/app/services/public.proyect.service';
 
 @Component({
   selector: 'app-report-bug',
@@ -12,66 +13,73 @@ import { ReportBug } from './models/report.bug';
 export class ReportBugComponent implements OnInit {
 
   constructor(
-    private http:HttpClient
+    private appUIUtilsService:      AppUIUtilsService,
+    private publicBugReportService: PublicBugReportService,
+    private publicProyectService:   PublicProyectService,
+    private activatedRoute:         ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(async paramMap => {
+      this.model.proyect_id = paramMap.get('id');
+      this.publicProyectService.get(this.model.proyect_id).subscribe(
+        ok => {
+         this.proyect_name = ok.name;
+        },
+        err => {
+        }
+      );
+    });
+    
   }
 
   public model:any = new ReportBug();
   public proyect_name:string = 'Grupo Fotográfico Centro';
 
-  ImageBaseData:string | ArrayBuffer=null;
+  next(){
+    
+    if (this.model.description == ''){
+      this.appUIUtilsService.showMessage("Es necesario completar la descripción.");
+      return false;
+    }
 
-  next(){}
+    this.appUIUtilsService.presentLoading();
+    this.publicBugReportService.post(this.model).subscribe(
+      ok => {
+        this.appUIUtilsService.dismissLoading();
+        this.appUIUtilsService.showMessage("Reporte recibido correctamente.");
+      },
+      err => {
+        this.appUIUtilsService.dismissLoading();
+        this.appUIUtilsService.showMessage("Limite de mensajes superado, intente luego.");
+      }
+    );
+  }
+
+  deleteImg(i:number){
+    this.model.images.splice(i, 1);
+  }
 
   handleFileInput(files: FileList) {
     let me = this;
-    me.model.images= [];
-    for (let c=0; c < files.length; c++){
-      let file = files[c];
-      let reader = new FileReader();
+    let file = files[0];
+    let reader = new FileReader();
    
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        console.log(reader.result);
-        me.model.images[c]=reader.result;
-      };
-      reader.onerror = function (error) {
-        console.log('Error: ', error);
-      };
-   
-    }
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+        for(let c=0; c<me.model.images.length; c++){
+          if (me.model.images[c].name == file.name){
+            me.appUIUtilsService.showMessage( "La imagen seleccionada ya se encuentra entre las imágenes a subir." );
+            return false;
+          }
+        }
+        me.model.images.push({ file: reader.result, name:file.name});
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+      return false;
+    };
   }
 
-  btnUpload(){
-    
-    if(this.ImageBaseData==null){
-      alert("Please select file");
-    }else{     
-      var fileUplodVM: FileUplodVM={
-        ImageBaseData:this.ImageBaseData.toString()
-      }
-      this.CreateItem(fileUplodVM).subscribe((res: any) =>{ 
-        if(res){
-          alert("Successfully uploded file");
-        }else{
-          alert("File upload failed");
-        }
-        
-      },
-      error => {
-        alert(error.message);
-      });
-    }
-  }
-  public CreateItem(data) {
-   return this.http.post(`http://localhost:52410/api/Order/UploadFile`, data)
-    .pipe(
-      map((res: any) => {
-        console.log(res);
-        return res;
-      }));
-  }
 
 }
