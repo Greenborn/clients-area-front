@@ -1,22 +1,44 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class ConfigService {
 
-  constructor(
-  ) {}
+  private local = false;
 
-  public getConfigData(){
+  constructor() { }
+
+  get data() {
     return {
-      apiBaseUrl: "https://estadisticas1.api.greenborn.com.ar/",//"http://localhost:8000/"
-      loginAction:"api-token-auth/",
-      equiposAction:"equipo",
-      logEquipoAction:"log_equipo",
-      tipoEquipoAction:"tipo_equipo",
-      logEquipoRegAction:"log_equipo_data",
-      camposLogAction:"campos_log",
-      appName: "app_estadisticas1_dev_"
+      apiBaseUrl: this.local ? "http://localhost:8080/" : "https://clientes.api.greenborn.com.ar/",
+      loginAction:"login",
+      appName: "app_clients_dev-"
     };
+  }
+
+  get loginUrl() { 
+    return this.data.apiBaseUrl + this.data.loginAction 
+  }
+  
+  get tokenKey() { 
+    return this.data.appName + 'token' 
+  }
+
+  apiUrl(recurso: string) { 
+    return this.data.apiBaseUrl + recurso
+  }
+
+  setLocalStorage(r: string, v: any): void {
+    if (v == null) {
+      localStorage.removeItem(this.data.appName + r)
+    } else {
+      localStorage.setItem(this.data.appName + r, v .toString())
+    }
+
+  }
+  getLocalStorage(r: string): string {
+    return localStorage.getItem(this.data.appName + r)
   }
 
 }

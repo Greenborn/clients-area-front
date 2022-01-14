@@ -8,11 +8,25 @@
     pointer-events: none;
   }
 
-.vh-100{
-  height: 100vh !important;
+.vhm-100{
+  min-height: 100vh !important;
 }
 
 .flex-vert-align{
   display: flex;
   align-items: center;
+}
+
+.bg1, .back-p2{
+  background-image: url("./assets/img/bg1.jpeg");
+  background-repeat: repeat;
+}
+
+.pr-0 {
+  padding-right: 0px !important;
+}
+
+.pr_name{
+  color:#777;
+  font-weight: bold;
 }

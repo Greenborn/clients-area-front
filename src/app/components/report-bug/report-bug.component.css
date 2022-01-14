@@ -1,0 +1,31 @@
+.sub-container{
+    background: rgba(0,0,0,.7);
+}
+
+.form-container{
+    background: #FFF;
+}
+
+.title{
+    border-bottom: 1px solid #000;
+}
+
+.btn-add-image{
+    padding:5px; 
+    border:solid 1px #83878a;
+    color:#83878a;
+    height: 125px; width: 125px;
+    padding-top: 13px;
+    text-align: center;
+}
+
+.selected-img-cont{
+    max-width: 125px;
+    height: 125px;
+    text-align: center;
+    display: inline-block;
+    border:solid 1px #83878a;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: .7rem;
+}

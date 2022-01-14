@@ -9,27 +9,27 @@ import { ChartModule } from 'angular-highcharts';
 
 import { AutenticationModule } from './modules/autentication/autentication.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppUIUtilsModule } from './modules/AppUIUtils/app-uiutils.module';
 
 import { LoadingComponent } from './modules/AppUIUtils/components/loading/loading.component';
 import { MessageComponent } from './modules/AppUIUtils/components/message/message.component';
 import { allIcons, NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
+import { ReportBugComponent } from './components/report-bug/report-bug.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoadingComponent,
-    MessageComponent
+    MessageComponent,
+    ReportBugComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AutenticationModule,
-    AppUIUtilsModule,
     FormsModule,
-    AppUIUtilsModule,
     ReactiveFormsModule,
-    ChartModule,AppUIUtilsModule,
+    AutenticationModule,
+    FormsModule,
+    ChartModule,
     NgbModule,NgbPopoverModule,
     NgbNavModule, NgbAccordionModule,
     NgxBootstrapIconsModule.pick(allIcons)

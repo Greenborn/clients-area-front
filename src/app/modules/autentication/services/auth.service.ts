@@ -24,7 +24,7 @@ export class AuthService {
     private  config:      ConfigService,
     private  gral:        AppUIUtilsService
   ) {
-    this.confGral = this.config.getConfigData();
+    this.confGral = this.config;
   }
 
   login( model:Login ){

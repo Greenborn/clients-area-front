@@ -30,7 +30,7 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -65,8 +65,8 @@
             "browserTarget": "front:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "front:build:production"
+            "development": {
+              "browserTarget": "front:build:development"
             }
           }
         },
@@ -114,8 +114,8 @@
             "devServerTarget": "front:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "front:serve:production"
+            "development": {
+              "devServerTarget": "front:serve:development"
             }
           }
         }
